@@ -44,7 +44,7 @@ val dokka by tasks.getting(DokkaTask::class) {
 publishing {
     publications {
         create<MavenPublication>("maven") {
-            groupId = "com.elbekd"
+            groupId = "com.github.KurenaiRyu"
             artifactId = "kt-telegram-bot"
             version = "2.2.0"
 
