@@ -1,36 +1,11 @@
 package com.elbekd.bot.internal
 
 import com.elbekd.bot.feature.chain.ChainController
-import com.elbekd.bot.types.CallbackQuery
-import com.elbekd.bot.types.ChatJoinRequest
-import com.elbekd.bot.types.ChatMemberUpdated
-import com.elbekd.bot.types.ChosenInlineResult
-import com.elbekd.bot.types.InlineQuery
-import com.elbekd.bot.types.Message
-import com.elbekd.bot.types.Poll
-import com.elbekd.bot.types.PollAnswer
-import com.elbekd.bot.types.PreCheckoutQuery
-import com.elbekd.bot.types.ShippingQuery
-import com.elbekd.bot.types.Update
-import com.elbekd.bot.types.UpdateCallbackQuery
-import com.elbekd.bot.types.UpdateChannelPost
-import com.elbekd.bot.types.UpdateChatJoinRequest
-import com.elbekd.bot.types.UpdateChatMember
-import com.elbekd.bot.types.UpdateChosenInlineResult
-import com.elbekd.bot.types.UpdateEditedChannelPost
-import com.elbekd.bot.types.UpdateEditedMessage
-import com.elbekd.bot.types.UpdateInlineQuery
-import com.elbekd.bot.types.UpdateMessage
-import com.elbekd.bot.types.UpdateMyChatMember
-import com.elbekd.bot.types.UpdatePoll
-import com.elbekd.bot.types.UpdatePollAnswer
-import com.elbekd.bot.types.UpdatePreCheckoutQuery
-import com.elbekd.bot.types.UpdateResponse
-import com.elbekd.bot.types.UpdateShippingQuery
+import com.elbekd.bot.types.*
 import com.elbekd.bot.util.AllowedUpdate
 import com.elbekd.bot.util.isCommand
 
-internal class UpdateHandler(private val username: String?) {
+internal class UpdateHandler(private val chainController: ChainController, private val username: String?) {
     private var onMessageUpdate: (suspend (Message) -> Unit)? = null
     private var onEditedMessageUpdate: (suspend (Message) -> Unit)? = null
     private var onChannelPostUpdate: (suspend (Message) -> Unit)? = null
@@ -156,8 +131,8 @@ internal class UpdateHandler(private val username: String?) {
 
             is UpdateMessage -> {
                 when {
-                    ChainController.canHandle(update.message) -> {
-                        ChainController.handle(update.message)
+                    chainController.canHandle(update.message) -> {
+                        chainController.handle(update.message)
                     }
 
                     update.isCommand(username) -> {

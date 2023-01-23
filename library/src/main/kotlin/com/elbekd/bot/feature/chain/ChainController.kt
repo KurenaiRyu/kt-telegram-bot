@@ -1,8 +1,14 @@
 package com.elbekd.bot.feature.chain
 
+import com.elbekd.bot.Bot
 import com.elbekd.bot.types.Message
 
-internal object ChainController {
+
+internal object ChainControllerHolder {
+    internal val controllers = mutableMapOf<Bot, ChainController>()
+}
+
+public class ChainController {
     private val activeChains = mutableMapOf<Long, Chain>()
     private val registeredChains = mutableSetOf<Chain>()
 
@@ -10,19 +16,19 @@ internal object ChainController {
         registeredChains.add(chain)
     }
 
-    fun jumpTo(label: String, message: Message) {
+    internal fun jumpTo(label: String, message: Message) {
         val chatId = message.chat.id
         val activeChain =
             activeChains[chatId] ?: throw IllegalStateException("There is no active chains for chat $chatId")
         activeChain.jumpTo(label)
     }
 
-    suspend fun jumpToAndFire(label: String, message: Message) {
+    internal suspend fun jumpToAndFire(label: String, message: Message) {
         jumpTo(label, message)
         handle(message)
     }
 
-    suspend fun canHandle(message: Message): Boolean {
+    internal suspend fun canHandle(message: Message): Boolean {
         val chatId = message.chat.id
         val activeChain = activeChains[chatId]
 
@@ -33,7 +39,7 @@ internal object ChainController {
         return registeredChains.any { chain -> chain.canFire(message) }
     }
 
-    suspend fun handle(message: Message) {
+    internal suspend fun handle(message: Message) {
         val chatId = message.chat.id
         val activeChain = activeChains[chatId]
 
@@ -51,7 +57,7 @@ internal object ChainController {
         }
     }
 
-    fun terminateChain(chatId: Long) {
+    internal fun terminateChain(chatId: Long) {
         activeChains.remove(chatId)
     }
 }

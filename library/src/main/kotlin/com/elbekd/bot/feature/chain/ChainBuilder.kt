@@ -1,15 +1,18 @@
 package com.elbekd.bot.feature.chain
 
+import com.elbekd.bot.Bot
 import com.elbekd.bot.types.Message
-import java.util.LinkedList
+import java.util.*
 
 public class ChainBuilder private constructor(
+    private val bot: Bot,
     private val label: String,
     private val predicate: suspend (Message) -> Boolean,
     private val action: suspend (Message) -> Unit
 ) {
 
-    private constructor(trigger: String, triggerAction: suspend (Message) -> Unit) : this(
+    private constructor(bot: Bot, trigger: String, triggerAction: suspend (Message) -> Unit) : this(
+        bot,
         trigger,
         predicate = { msg: Message -> msg.text == trigger },
         action = triggerAction
@@ -46,16 +49,16 @@ public class ChainBuilder private constructor(
      */
     public fun build(): Chain {
         val chain = Chain(label, predicate, chainList)
-        ChainController.registerChain(chain)
+        bot.registerChain(chain)
         return chain
     }
 
     private fun createNextLabel() = "$label-${chainList.size}"
 
     internal companion object {
-        fun with(trigger: String, action: suspend (Message) -> Unit) = ChainBuilder(trigger, action)
+        fun with(bot: Bot, trigger: String, action: suspend (Message) -> Unit) = ChainBuilder(bot, trigger, action)
 
-        fun with(label: String, predicate: suspend (Message) -> Boolean, action: suspend (Message) -> Unit) =
-            ChainBuilder(label, predicate, action)
+        fun with(bot: Bot, label: String, predicate: suspend (Message) -> Boolean, action: suspend (Message) -> Unit) =
+            ChainBuilder(bot, label, predicate, action)
     }
 }

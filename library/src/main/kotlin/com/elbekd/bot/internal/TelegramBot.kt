@@ -1,41 +1,16 @@
 package com.elbekd.bot.internal
 
 import com.elbekd.bot.Bot
+import com.elbekd.bot.feature.chain.chainController
 import com.elbekd.bot.model.ChatId
-import com.elbekd.bot.types.BotCommand
-import com.elbekd.bot.types.BotCommandScope
-import com.elbekd.bot.types.CallbackQuery
-import com.elbekd.bot.types.ChatAdministratorRights
-import com.elbekd.bot.types.ChatInviteLink
-import com.elbekd.bot.types.ChatPermissions
-import com.elbekd.bot.types.ChosenInlineResult
-import com.elbekd.bot.types.GameHighScore
-import com.elbekd.bot.types.InlineKeyboardMarkup
-import com.elbekd.bot.types.InlineQuery
-import com.elbekd.bot.types.InlineQueryResult
-import com.elbekd.bot.types.InputMedia
-import com.elbekd.bot.types.LabeledPrice
-import com.elbekd.bot.types.MaskPosition
-import com.elbekd.bot.types.MenuButton
-import com.elbekd.bot.types.Message
-import com.elbekd.bot.types.MessageEntity
-import com.elbekd.bot.types.ParseMode
-import com.elbekd.bot.types.PassportElementError
-import com.elbekd.bot.types.Poll
-import com.elbekd.bot.types.PreCheckoutQuery
-import com.elbekd.bot.types.ReplyKeyboard
-import com.elbekd.bot.types.ShippingOption
-import com.elbekd.bot.types.ShippingQuery
-import com.elbekd.bot.types.Update
-import com.elbekd.bot.types.UpdateResponse
-import com.elbekd.bot.types.User
+import com.elbekd.bot.types.*
 import com.elbekd.bot.util.Action
 import com.elbekd.bot.util.AllowedUpdate
 import com.elbekd.bot.util.SendingDocument
 import java.io.File
 
 internal abstract class TelegramBot protected constructor(username: String?, tk: String) : Bot {
-    private val updateHandler = UpdateHandler(username)
+    private val updateHandler = UpdateHandler(this.chainController(), username)
     private val client = TelegramClient(tk)
 
     protected suspend fun onUpdate(updates: List<Update>) = updates.forEach { updateHandler.handle(it) }
