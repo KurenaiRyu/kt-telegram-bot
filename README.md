@@ -1,6 +1,6 @@
 # kt-telegram-bot
 
-[![](https://jitpack.io/v/elbekD/kt-telegram-bot.svg)](https://jitpack.io/#elbekD/kt-telegram-bot)
+[![](https://jitpack.io/v/KurenaiRyu/kt-telegram-bot.svg)](https://jitpack.io/#KurenaiRyu/kt-telegram-bot)
 
 Convenient way to build Telegram bots using powerful Kotlin language.
 Support for [Telegram Bot API 6.2](https://core.telegram.org/bots/api).
@@ -38,7 +38,7 @@ repositories {
 }
 
 dependencies {
-    implementation "com.elbekD:kt-telegram-bot:$version"
+    implementation "com.github.kurenairyu:kt-telegram-bot:$version"
 }
 ```
 
@@ -50,7 +50,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.github.elbekD:kt-telegram-bot:${version}")
+    implementation("com.github.kurenairyu:kt-telegram-bot:${version}")
 }
 ```
 
@@ -62,7 +62,7 @@ Maven
 </repository>
 
 <dependency>
-    <groupId>com.github.elbekD</groupId>
+    <groupId>com.github.kurenairyu</groupId>
     <artifactId>kt-telegram-bot</artifactId>
     <version>{version}</version>
 </dependency>
