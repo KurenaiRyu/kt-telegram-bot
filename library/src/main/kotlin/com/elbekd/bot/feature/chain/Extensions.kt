@@ -13,7 +13,7 @@ import com.elbekd.bot.types.Message
  * @return [ChainBuilder]
  */
 public fun Bot.chain(trigger: String, action: suspend (Message) -> Unit): ChainBuilder {
-    return ChainBuilder.with(trigger, action)
+    return ChainBuilder.with(this, trigger, action)
 }
 
 /**
@@ -27,7 +27,7 @@ public fun Bot.chain(trigger: String, action: suspend (Message) -> Unit): ChainB
  * @return [ChainBuilder]
  */
 public fun Bot.chain(label: String, predicate: suspend (Message) -> Boolean, action: suspend (Message) -> Unit): ChainBuilder {
-    return ChainBuilder.with(label, predicate, action)
+    return ChainBuilder.with(this, label, predicate, action)
 }
 
 /**
@@ -37,7 +37,7 @@ public fun Bot.chain(label: String, predicate: suspend (Message) -> Boolean, act
  * @param message incoming [Message]
  */
 public fun Bot.jumpTo(label: String, message: Message) {
-    ChainController.jumpTo(label, message)
+    ChainControllerHolder.controllers[this]?.jumpTo(label, message)
 }
 
 /**
@@ -47,7 +47,7 @@ public fun Bot.jumpTo(label: String, message: Message) {
  * @param message incoming [Message]
  */
 public suspend fun Bot.jumpToAndFire(label: String, message: Message) {
-    ChainController.jumpToAndFire(label, message)
+    ChainControllerHolder.controllers[this]?.jumpToAndFire(label, message)
 }
 
 /**
@@ -55,5 +55,12 @@ public suspend fun Bot.jumpToAndFire(label: String, message: Message) {
  * @param chatId id of the chat to stop the chain for
  */
 public fun Bot.terminateChain(chatId: Long) {
-    ChainController.terminateChain(chatId)
+    ChainControllerHolder.controllers[this]?.terminateChain(chatId)
 }
+
+internal fun Bot.registerChain(chain: Chain) {
+    val controller = ChainControllerHolder.controllers[this]?:ChainController()
+    controller.registerChain(chain)
+}
+
+internal fun Bot.chainController() = ChainControllerHolder.controllers[this]?:ChainController()
