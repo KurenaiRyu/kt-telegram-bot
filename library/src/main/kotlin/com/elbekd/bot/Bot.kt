@@ -3,13 +3,7 @@ package com.elbekd.bot
 import com.elbekd.bot.api.TelegramApi
 import com.elbekd.bot.internal.LongPollingBot
 import com.elbekd.bot.internal.WebhookBot
-import com.elbekd.bot.types.CallbackQuery
-import com.elbekd.bot.types.ChosenInlineResult
-import com.elbekd.bot.types.InlineQuery
-import com.elbekd.bot.types.Message
-import com.elbekd.bot.types.PreCheckoutQuery
-import com.elbekd.bot.types.ShippingQuery
-import com.elbekd.bot.types.Update
+import com.elbekd.bot.types.*
 
 public interface Bot : TelegramApi {
     public companion object {

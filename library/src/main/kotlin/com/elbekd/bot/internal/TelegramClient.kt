@@ -3,110 +3,9 @@ package com.elbekd.bot.internal
 import com.elbekd.bot.api.TelegramApi
 import com.elbekd.bot.model.ChatId
 import com.elbekd.bot.model.TelegramApiError
-import com.elbekd.bot.model.internal.AnswerCallbackQuery
-import com.elbekd.bot.model.internal.AnswerInlineQuery
-import com.elbekd.bot.model.internal.AnswerPreCheckoutQuery
-import com.elbekd.bot.model.internal.AnswerShippingQuery
-import com.elbekd.bot.model.internal.AnswerWebAppQuery
-import com.elbekd.bot.model.internal.ApproveChatJoinRequest
-import com.elbekd.bot.model.internal.BanChatMember
-import com.elbekd.bot.model.internal.BanChatSenderChat
-import com.elbekd.bot.model.internal.CopyMessage
-import com.elbekd.bot.model.internal.CreateChatInviteLink
-import com.elbekd.bot.model.internal.CreateInvoiceLink
-import com.elbekd.bot.model.internal.DeclineChatJoinRequest
-import com.elbekd.bot.model.internal.DeleteChatPhoto
-import com.elbekd.bot.model.internal.DeleteChatStickerSet
-import com.elbekd.bot.model.internal.DeleteMessage
-import com.elbekd.bot.model.internal.DeleteMyCommands
-import com.elbekd.bot.model.internal.DeleteStickerFromSet
-import com.elbekd.bot.model.internal.EditChatInviteLink
-import com.elbekd.bot.model.internal.EditMessageCaption
-import com.elbekd.bot.model.internal.EditMessageLiveLocation
-import com.elbekd.bot.model.internal.EditMessageReplyMarkup
-import com.elbekd.bot.model.internal.EditMessageText
-import com.elbekd.bot.model.internal.ExportChatInviteLink
-import com.elbekd.bot.model.internal.ForwardMessage
-import com.elbekd.bot.model.internal.GetChat
-import com.elbekd.bot.model.internal.GetChatAdministrators
-import com.elbekd.bot.model.internal.GetChatMember
-import com.elbekd.bot.model.internal.GetChatMembersCount
-import com.elbekd.bot.model.internal.GetChatMenuButton
-import com.elbekd.bot.model.internal.GetCustomEmojiStickers
-import com.elbekd.bot.model.internal.GetFile
-import com.elbekd.bot.model.internal.GetGameHighScores
-import com.elbekd.bot.model.internal.GetMyCommands
-import com.elbekd.bot.model.internal.GetMyDefaultAdministratorRights
-import com.elbekd.bot.model.internal.GetStickerSet
-import com.elbekd.bot.model.internal.GetUserProfilePhotos
-import com.elbekd.bot.model.internal.LeaveChat
-import com.elbekd.bot.model.internal.PinChatMessage
-import com.elbekd.bot.model.internal.PromoteChatMember
-import com.elbekd.bot.model.internal.RestrictChatMember
-import com.elbekd.bot.model.internal.RevokeChatInviteLink
-import com.elbekd.bot.model.internal.SendChatAction
-import com.elbekd.bot.model.internal.SendContact
-import com.elbekd.bot.model.internal.SendDice
-import com.elbekd.bot.model.internal.SendGame
-import com.elbekd.bot.model.internal.SendInvoice
-import com.elbekd.bot.model.internal.SendLocation
-import com.elbekd.bot.model.internal.SendMessage
-import com.elbekd.bot.model.internal.SendPoll
-import com.elbekd.bot.model.internal.SendVenue
-import com.elbekd.bot.model.internal.SetChatAdministratorCustomTitle
-import com.elbekd.bot.model.internal.SetChatDescription
-import com.elbekd.bot.model.internal.SetChatMenuButton
-import com.elbekd.bot.model.internal.SetChatPermissions
-import com.elbekd.bot.model.internal.SetChatStickerSet
-import com.elbekd.bot.model.internal.SetChatTitle
-import com.elbekd.bot.model.internal.SetGameScore
-import com.elbekd.bot.model.internal.SetMyCommands
-import com.elbekd.bot.model.internal.SetMyDefaultAdministratorRights
-import com.elbekd.bot.model.internal.SetPassportDataErrors
-import com.elbekd.bot.model.internal.SetStickerPositionInSet
-import com.elbekd.bot.model.internal.StopMessageLiveLocation
-import com.elbekd.bot.model.internal.StopPoll
-import com.elbekd.bot.model.internal.UnbanChatMember
-import com.elbekd.bot.model.internal.UnbanChatSenderChat
-import com.elbekd.bot.model.internal.UnpinAllChatMessages
-import com.elbekd.bot.model.internal.UnpinChatMessage
-import com.elbekd.bot.model.internal.UpdateRequest
-import com.elbekd.bot.types.BotCommand
-import com.elbekd.bot.types.BotCommandScope
-import com.elbekd.bot.types.Chat
-import com.elbekd.bot.types.ChatAdministratorRights
-import com.elbekd.bot.types.ChatInviteLink
-import com.elbekd.bot.types.ChatMember
-import com.elbekd.bot.types.ChatPermissions
-import com.elbekd.bot.types.GameHighScore
-import com.elbekd.bot.types.InlineKeyboardMarkup
-import com.elbekd.bot.types.InlineQueryResult
-import com.elbekd.bot.types.InputMedia
-import com.elbekd.bot.types.LabeledPrice
-import com.elbekd.bot.types.MaskPosition
-import com.elbekd.bot.types.MenuButton
-import com.elbekd.bot.types.Message
-import com.elbekd.bot.types.MessageEntity
-import com.elbekd.bot.types.MessageId
-import com.elbekd.bot.types.ParseMode
-import com.elbekd.bot.types.PassportElementError
-import com.elbekd.bot.types.Poll
-import com.elbekd.bot.types.ReplyKeyboard
-import com.elbekd.bot.types.SentWebAppMessage
-import com.elbekd.bot.types.ShippingOption
-import com.elbekd.bot.types.Sticker
-import com.elbekd.bot.types.StickerSet
-import com.elbekd.bot.types.Update
-import com.elbekd.bot.types.UpdateResponse
-import com.elbekd.bot.types.User
-import com.elbekd.bot.types.UserProfilePhotos
-import com.elbekd.bot.types.WebhookInfo
-import com.elbekd.bot.util.Action
-import com.elbekd.bot.util.AllowedUpdate
-import com.elbekd.bot.util.SendingByteArray
-import com.elbekd.bot.util.SendingDocument
-import com.elbekd.bot.util.SendingFile
-import com.elbekd.bot.util.SendingString
+import com.elbekd.bot.model.internal.*
+import com.elbekd.bot.types.*
+import com.elbekd.bot.util.*
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerialName
@@ -114,25 +13,25 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import okhttp3.*
 import okhttp3.MediaType.Companion.toMediaType
-import okhttp3.MultipartBody
-import okhttp3.OkHttpClient
-import okhttp3.Request
-import okhttp3.RequestBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import okhttp3.RequestBody.Companion.toRequestBody
-import okhttp3.Response
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-internal class TelegramClient(token: String) : TelegramApi {
+internal class TelegramClient(
+    token: String,
+    baseUrl: String = ApiConstants.BASE_URL
+) : TelegramApi {
+
     private val httpClient = OkHttpClient.Builder()
         .connectTimeout(60L, TimeUnit.SECONDS)
         .readTimeout(60L, TimeUnit.SECONDS)
         .writeTimeout(60L, TimeUnit.SECONDS)
         .build()
 
-    private val url = ApiConstants.API_URL_FORMAT.format(token)
+    private val url = "$baseUrl/bot%s".format(token)
 
     private val json: Json = Json { ignoreUnknownKeys = true }
 

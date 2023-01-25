@@ -9,9 +9,9 @@ import com.elbekd.bot.util.AllowedUpdate
 import com.elbekd.bot.util.SendingDocument
 import java.io.File
 
-internal abstract class TelegramBot protected constructor(username: String?, tk: String) : Bot {
+internal abstract class TelegramBot protected constructor(username: String?, tk: String, baseUrl: String = ApiConstants.BASE_URL) : Bot {
     private val updateHandler = UpdateHandler(this.chainController(), username)
-    private val client = TelegramClient(tk)
+    private val client = TelegramClient(tk, baseUrl)
 
     protected suspend fun onUpdate(updates: List<Update>) = updates.forEach { updateHandler.handle(it) }
 

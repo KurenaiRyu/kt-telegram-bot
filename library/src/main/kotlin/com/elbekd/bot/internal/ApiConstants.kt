@@ -1,8 +1,7 @@
 package com.elbekd.bot.internal
 
 internal object ApiConstants {
-    private const val BASE_URL = "https://api.telegram.org"
-    const val API_URL_FORMAT = "$BASE_URL/bot%s"
+    const val BASE_URL = "https://api.telegram.org"
 
     const val METHOD_GET_UPDATES = "getUpdates"
     const val METHOD_GET_MY_COMMANDS = "getMyCommands"
