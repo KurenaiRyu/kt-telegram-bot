@@ -1,5 +1,6 @@
 package com.elbekd.bot
 
+import com.elbekd.bot.internal.ApiConstants
 import com.elbekd.bot.util.AllowedUpdate
 import java.io.File
 
@@ -26,6 +27,8 @@ public class PollingOptions {
         EARLIEST,
         LATEST,
     }
+
+    public var baseUrl: String = ApiConstants.BASE_URL
 
     override fun toString(): String {
         return """

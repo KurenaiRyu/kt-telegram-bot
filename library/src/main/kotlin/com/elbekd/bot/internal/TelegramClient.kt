@@ -137,14 +137,18 @@ import okhttp3.Response
 import java.io.File
 import java.util.concurrent.TimeUnit
 
-internal class TelegramClient(token: String) : TelegramApi {
+internal class TelegramClient(
+    token: String,
+    baseUrl: String = ApiConstants.BASE_URL
+) : TelegramApi {
+
     private val httpClient = OkHttpClient.Builder()
         .connectTimeout(60L, TimeUnit.SECONDS)
         .readTimeout(60L, TimeUnit.SECONDS)
         .writeTimeout(60L, TimeUnit.SECONDS)
         .build()
 
-    private val url = ApiConstants.API_URL_FORMAT.format(token)
+    private val url = "$baseUrl/bot%s".format(token)
 
     private val json: Json = Json { ignoreUnknownKeys = true }
 

@@ -8,7 +8,7 @@ internal class LongPollingBot(
     username: String?,
     token: String,
     private val options: PollingOptions
-) : TelegramBot(username, token) {
+) : TelegramBot(username, token, options.baseUrl) {
 
     private val pollingThread = Executors.newSingleThreadExecutor()
 
