@@ -46,7 +46,7 @@ publishing {
         create<MavenPublication>("maven") {
             groupId = "com.github.KurenaiRyu"
             artifactId = "kt-telegram-bot"
-            version = "2.2.0"
+            version = "2.2.0.1"
 
             from(components["java"])
         }
