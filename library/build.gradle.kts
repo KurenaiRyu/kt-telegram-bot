@@ -41,6 +41,11 @@ val dokka by tasks.getting(DokkaTask::class) {
     outputDirectory = "$buildDir/dokka"
 }
 
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
 publishing {
     publications {
         create<MavenPublication>("maven") {

@@ -50,7 +50,7 @@ public data class InlineQueryResultPhoto(
     @SerialName("title") val title: String? = null,
     @SerialName("description") val description: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -71,7 +71,7 @@ public data class InlineQueryResultGif(
     @SerialName("thumb_mime_type") val thumbMimeType: String? = null,
     @SerialName("title") val title: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -91,7 +91,7 @@ public data class InlineQueryResultMpeg4Gif(
     @SerialName("mpeg4_duration") val mpeg4Duration: Int? = null,
     @SerialName("thumb_mime_type") val thumbMimeType: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -109,7 +109,7 @@ public data class InlineQueryResultVideo(
     @SerialName("thumb_url") val thumbUrl: String,
     @SerialName("title") val title: String,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("video_width") val videoWidth: Int? = null,
     @SerialName("video_height") val videoHeight: Int? = null,
@@ -129,7 +129,7 @@ public data class InlineQueryResultAudio(
     @SerialName("audio_url") val audioUrl: String,
     @SerialName("title") val title: String,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("performer") val performer: String? = null,
     @SerialName("audio_duration") val audioDuration: Int? = null,
@@ -147,7 +147,7 @@ public data class InlineQueryResultVoice(
     @SerialName("voice_url") val voiceUrl: String,
     @SerialName("title") val title: String,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("voice_duration") val voiceDuration: Int? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
@@ -165,7 +165,7 @@ public data class InlineQueryResultDocument(
     @SerialName("document_url") val documentUrl: String,
     @SerialName("mime_type") val mimeType: String,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("description") val description: String? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
@@ -258,7 +258,7 @@ public data class InlineQueryResultCachedPhoto(
     @SerialName("title") val title: String? = null,
     @SerialName("description") val description: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -274,7 +274,7 @@ public data class InlineQueryResultCachedGif(
     @SerialName("gif_file_id") val gifFileId: String,
     @SerialName("title") val title: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -290,7 +290,7 @@ public data class InlineQueryResultCachedMpeg4Gif(
     @SerialName("mpeg4_file_id") val mpeg4FileId: String,
     @SerialName("title") val title: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -319,7 +319,7 @@ public data class InlineQueryResultCachedDocument(
     @SerialName("document_file_id") val documentFileId: String,
     @SerialName("description") val description: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -336,7 +336,7 @@ public data class InlineQueryResultCachedVideo(
     @SerialName("title") val title: String,
     @SerialName("description") val description: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -352,7 +352,7 @@ public data class InlineQueryResultCachedVoice(
     @SerialName("voice_file_id") val voiceFileId: String,
     @SerialName("description") val description: String? = null,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -367,7 +367,7 @@ public data class InlineQueryResultCachedAudio(
     @SerialName("id") val id: String,
     @SerialName("audio_file_id") val audioFileId: String,
     @SerialName("caption") val caption: String? = null,
-    @SerialName("parse_mode") val parseMode: String? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
     @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
     @SerialName("reply_markup") val replyMarkup: InlineKeyboardMarkup? = null,
     @SerialName("input_message_content") val inputMessageContent: InputMessageContent? = null
@@ -383,8 +383,8 @@ public sealed class InputMessageContent
 @Serializable
 public data class InputTextMessageContent(
     @SerialName("message_text") val messageText: String,
-    @SerialName("parse_mode") val parseMode: String? = null,
-    @SerialName("caption_entities") val captionEntities: List<MessageEntity>? = null,
+    @SerialName("parse_mode") val parseMode: ParseMode? = null,
+    @SerialName("entities") val entities: List<MessageEntity>? = null,
     @SerialName("disable_web_page_preview") val disableWebPagePreview: Boolean? = null
 ) : InputMessageContent()
 

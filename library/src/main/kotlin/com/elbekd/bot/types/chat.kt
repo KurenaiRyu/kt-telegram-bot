@@ -34,7 +34,19 @@ public data class Chat(
     @SerialName("can_set_sticker_set") val canSetStickerSet: Boolean? = null,
     @SerialName("linked_chat_id") val linkedChatId: Int? = null,
     @SerialName("location") val location: ChatLocation? = null,
-)
+) {
+    @Serializable
+    public enum class Type {
+        @SerialName("private")
+        PRIVATE,
+        @SerialName("group")
+        GROUP,
+        @SerialName("supergroup")
+        SUPERGROUP,
+        @SerialName("channel")
+        CHANNEL
+    }
+}
 
 @Serializable
 public data class ChatLocation(
