@@ -298,7 +298,7 @@ internal class TelegramClient(
         val optionals = mutableMapOf<String, String>()
         caption?.let { optionals += ApiConstants.CAPTION to it }
         messageThreadId?.let { optionals += ApiConstants.MESSAGE_THREAD_ID to toJson(it) }
-        parseMode?.let { optionals += ApiConstants.PARSE_MODE to toJson(it) }
+        parseMode?.let { optionals += ApiConstants.PARSE_MODE to it.toString() }
         captionEntities?.let { optionals += ApiConstants.CAPTION_ENTITIES to toJson(it) }
         hasSpoiler?.let { ApiConstants.HAS_SPOILER to toJson(it) }
         disableNotification?.let { optionals += ApiConstants.DISABLE_NOTIFICATION to toJson(it) }
@@ -335,7 +335,7 @@ internal class TelegramClient(
         val optionals = mutableMapOf<String, String>()
         messageThreadId?.let { optionals += ApiConstants.MESSAGE_THREAD_ID to toJson(it) }
         caption?.let { optionals += ApiConstants.CAPTION to toJson(caption) }
-        parseMode?.let { optionals += ApiConstants.PARSE_MODE to toJson(parseMode) }
+        parseMode?.let { optionals += ApiConstants.PARSE_MODE to it.toString() }
         captionEntities?.let { optionals += ApiConstants.CAPTION_ENTITIES to toJson(captionEntities) }
         duration?.let { optionals += ApiConstants.DURATION to toJson(duration) }
         performer?.let { optionals += ApiConstants.PERFORMER to toJson(performer) }
@@ -373,7 +373,7 @@ internal class TelegramClient(
         val optionals = mutableMapOf<String, String>()
         messageThreadId?.let { optionals += ApiConstants.MESSAGE_THREAD_ID to toJson(it) }
         caption?.let { optionals += ApiConstants.CAPTION to toJson(it) }
-        parseMode?.let { optionals += ApiConstants.PARSE_MODE to toJson(it) }
+        parseMode?.let { optionals += ApiConstants.PARSE_MODE to it.toString() }
         captionEntities?.let { optionals += ApiConstants.CAPTION_ENTITIES to toJson(it) }
         disableContentTypeDetection?.let { optionals += ApiConstants.DISABLE_CONTENT_TYPE_DETECTION to toJson(it) }
         disableNotification?.let { optionals += ApiConstants.DISABLE_NOTIFICATION to toJson(it) }
@@ -416,7 +416,7 @@ internal class TelegramClient(
         width?.let { ApiConstants.WIDTH to toJson(it) }
         height?.let { ApiConstants.HEIGHT to toJson(it) }
         caption?.let { ApiConstants.CAPTION to toJson(it) }
-        parseMode?.let { ApiConstants.PARSE_MODE to toJson(it) }
+        parseMode?.let { ApiConstants.PARSE_MODE to it.toString() }
         captionEntities?.let { ApiConstants.CAPTION_ENTITIES to toJson(it) }
         hasSpoiler?.let { ApiConstants.HAS_SPOILER to toJson(it) }
         streaming?.let { ApiConstants.SUPPORTS_STREAMING to toJson(it) }
@@ -459,7 +459,7 @@ internal class TelegramClient(
         width?.let { ApiConstants.WIDTH to toJson(it) }
         height?.let { ApiConstants.HEIGHT to toJson(it) }
         caption?.let { ApiConstants.CAPTION to toJson(it) }
-        parseMode?.let { ApiConstants.PARSE_MODE to toJson(it) }
+        parseMode?.let { ApiConstants.PARSE_MODE to it.toString() }
         captionEntities?.let { ApiConstants.CAPTION_ENTITIES to toJson(it) }
         hasSpoiler?.let { ApiConstants.HAS_SPOILER to toJson(it) }
         disableNotification?.let { ApiConstants.DISABLE_NOTIFICATION to toJson(it) }
@@ -494,7 +494,7 @@ internal class TelegramClient(
         val optionals = mutableMapOf<String, String>()
         messageThreadId?.let { optionals += ApiConstants.MESSAGE_THREAD_ID to toJson(it) }
         caption?.let { ApiConstants.CAPTION to toJson(it) }
-        parseMode?.let { ApiConstants.PARSE_MODE to toJson(it) }
+        parseMode?.let { ApiConstants.PARSE_MODE to it.toString() }
         captionEntities?.let { ApiConstants.CAPTION_ENTITIES to toJson(it) }
         duration?.let { ApiConstants.DURATION to toJson(it) }
         disableNotification?.let { ApiConstants.DISABLE_NOTIFICATION to toJson(it) }
